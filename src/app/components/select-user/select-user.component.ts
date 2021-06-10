@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {UserInterface} from "../../models/user.interface";
 import {UsersService} from "../../services/users.service";
+import {DataTransferService} from "../../services/data-transfer.service";
 
 @Component({
   selector: 'app-select-user',
@@ -16,7 +17,7 @@ export class SelectUserComponent implements OnInit {
 
   form = new FormGroup({id: this.id})
 
-  constructor(private usersService: UsersService) {
+  constructor(private usersService: UsersService, private dataTransfer: DataTransferService) {
   }
 
   ngOnInit(): void {
@@ -24,6 +25,9 @@ export class SelectUserComponent implements OnInit {
   }
 
   update() {
+    const user = this.users.find(value => value.id === this.form.value.id)
+
+    this.dataTransfer.state.next(user);
 
   }
 }

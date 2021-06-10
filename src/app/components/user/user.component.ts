@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DataTransferService} from "../../services/data-transfer.service";
+import {UserInterface} from "../../models/user.interface";
 
 @Component({
   selector: 'app-user',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  user: UserInterface;
+
+  constructor(private dataTransfer: DataTransferService) {
+
+  }
 
   ngOnInit(): void {
+    this.dataTransfer.state.subscribe(value => this.user = value );
   }
 
 }
