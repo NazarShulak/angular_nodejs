@@ -16,7 +16,9 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataTransfer.state.subscribe(value => this.user = value );
+    this.dataTransfer.state.subscribe(value => {
+      this.user = value
+    });
   }
 
 }

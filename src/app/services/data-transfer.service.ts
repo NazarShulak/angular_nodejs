@@ -7,7 +7,7 @@ import {UserInterface} from "../models/user.interface";
 })
 export class DataTransferService {
 
-  state = new BehaviorSubject<any>('-');
+  state = new BehaviorSubject<UserInterface>(<UserInterface>({} as any));
 
   constructor() {
   }

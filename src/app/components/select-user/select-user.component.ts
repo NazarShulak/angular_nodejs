@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {UserInterface} from "../../models/user.interface";
 import {UsersService} from "../../services/users.service";
@@ -25,9 +25,10 @@ export class SelectUserComponent implements OnInit {
   }
 
   update() {
-    const user = this.users.find(value => value.id === this.form.value.id)
-
-    this.dataTransfer.state.next(user);
+    const user = this.users.find(value => value.id == this.form.value.id)
+    if (user) {
+      this.dataTransfer.state.next(user);
+    }
 
   }
 }
