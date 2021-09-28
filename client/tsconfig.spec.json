@@ -9,10 +9,10 @@
   },
   "files": [
     "src/test.ts",
-    "src/polyfills.ts"
+    "res/src/polyfills.ts"
   ],
   "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
+    "res/src/**/*.spec.ts",
+    "res/src/**/*.d.ts"
   ]
 }
